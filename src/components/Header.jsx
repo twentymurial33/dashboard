@@ -18,6 +18,11 @@ import Stack from "@mui/material/Stack";
 import FaceIcon from "@mui/icons-material/Face";
 import Chatbot from "./Chatbot";
 import Button from "@mui/material/Button";
+import { Amplify } from "aws-amplify";
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import "@aws-amplify/ui-react/styles.css";
+import awsExports from "../aws-exports.js";
+Amplify.configure(awsExports);
 
 const drawerWidth = 240;
 
@@ -175,4 +180,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default withAuthenticator(Header);

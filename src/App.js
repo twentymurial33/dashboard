@@ -7,9 +7,9 @@ const AppWrapper = () => {
   let routes = useRoutes([
     {
       path: "/",
-      element: <SignIn />,
+      element: <Landing />,
     },
-    { path: "/Landing", element: <Landing /> },
+    // { path: "/Landing", element: <Landing /> },
     { path: "/Profile", element: <Profile /> },
   ]);
   return routes;

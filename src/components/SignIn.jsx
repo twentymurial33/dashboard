@@ -2,8 +2,6 @@ import React, { useState, useRef } from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -34,40 +32,19 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 }));
 
 const SignIn = ({ signOut, user }) => {
-  // const [isLoggedIn, setIsLoggedIn] = useState(true);
-  // const emailRef = useRef();
-  // const passwordRef = useRef();
-  // const [error, setError] = useState("");
-  // const navigate = useNavigate();
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-
-  // async function handleSubmit(e) {
-  //   e.preventDefault();
-  //   console.log(e);
-  //   try {
-  //     setError("");
-  //     await UserPool.signup(emailRef.current.name, passwordRef.current.name);
-  //     navigate("./Header");
-  //     console.log(e);
-  //   } catch {
-  //     console.log(error);
-  //   }
-  // }
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    console.log(event);
-    UserPool.signIn(email, password, [], null, (err, data) => {
-      if (err) {
-        console.error(err);
-      }
-      console.log(data);
-    });
-  };
+  // const onSubmit = (event) => {
+  //   event.preventDefault();
+  //   console.log(event);
+  //   UserPool.signIn(email, password, [], null, (err, data) => {
+  //     if (err) {
+  //       console.error(err);
+  //     }
+  //     console.log(data);
+  //   });
+  // };
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ flexGrow: 1 }}>
@@ -118,7 +95,7 @@ const SignIn = ({ signOut, user }) => {
               alignItems: "center",
             }}
           >
-            <Box component="form" onSubmit={onSubmit} sx={{ mt: 1 }}>
+            <Box component="form" sx={{ mt: 1 }}>
               <h1>Hello {user.username}</h1>
               {/* <button onClick={signOut}>Sign out</button> */}
               <TextField
@@ -143,46 +120,6 @@ const SignIn = ({ signOut, user }) => {
               <Button type="submit" onClick={signOut}>
                 Signup
               </Button>
-              {/* <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                ref={emailRef}
-                onChange={(event) => setEmail(event.target.name)}
-                autoComplete="email"
-                autoFocus
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                ref={passwordRef}
-                onChange={(event) => setPassword(event.target.name)}
-                autoComplete="current-password"
-              />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                style={{ backgroundColor: "black" }}
-                onClick={handleSubmit}
-                onClick={() => setIsLoggedIn(!isLoggedIn)}
-                sx={{ mt: 3, mb: 3 }}
-              >
-                <Link to="./Landing">SignIn</Link>
-                Sign In
-              </Button> */}
             </Box>
           </Box>
         </Grid>
