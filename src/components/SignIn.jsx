@@ -16,12 +16,11 @@ import Toolbar from "@mui/material/Toolbar";
 import { useNavigate, Link } from "react-router-dom";
 import Landing from "./Header";
 import UserPool from "../UserPool";
-import Amplify from "@aws-amplify/core";
-import { Auth } from "aws-amplify";
-// import { Amplify } from "aws-amplify";
+import { Amplify } from "aws-amplify";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
-import awsExports from "../aws-exports";
+import awsExports from "../aws-exports.js";
+Amplify.configure(awsExports);
 
 const theme = createTheme();
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
@@ -121,7 +120,7 @@ const SignIn = ({ signOut, user }) => {
           >
             <Box component="form" onSubmit={onSubmit} sx={{ mt: 1 }}>
               <h1>Hello {user.username}</h1>
-              <button onClick={signOut}>Sign out</button>
+              {/* <button onClick={signOut}>Sign out</button> */}
               <TextField
                 margin="normal"
                 required
@@ -141,7 +140,9 @@ const SignIn = ({ signOut, user }) => {
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
-              <Button type="submit">Signup</Button>
+              <Button type="submit" onClick={signOut}>
+                Signup
+              </Button>
               {/* <TextField
                 margin="normal"
                 required
