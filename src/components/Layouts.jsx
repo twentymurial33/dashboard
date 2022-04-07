@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import Drawer from "./Drawer";
 import Icons from "./Icons";
 
-function Layouts({ children, ...rest }) {
+function Layout({ children, ...rest }) {
   return (
     <div>
       <section id="content">{children}</section>
@@ -11,4 +11,4 @@ function Layouts({ children, ...rest }) {
   );
 }
 
-export default Layouts;
+export default Layout;

@@ -12,6 +12,10 @@ import { styled } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Chip from "@mui/material/Chip";
+import { Footer } from "./Footer";
+import { Head } from "./Head";
+import { SignInHeader } from "./SignInHeader";
+import { SignInFooter } from "./SignInFooter";
 import FaceIcon from "@mui/icons-material/Face";
 import { Amplify, Auth } from "aws-amplify";
 import { withAuthenticator } from "@aws-amplify/ui-react";
@@ -29,14 +33,6 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
     backgroundColor: "#2a293d",
   },
 }));
-
-async function signOut() {
-  try {
-    await Auth.signOut();
-  } catch (error) {
-    console.log("error signing out: ", error);
-  }
-}
 
 const SignIn = ({ signOut, user }) => {
   const [email, setEmail] = useState("");
@@ -132,4 +128,13 @@ const SignIn = ({ signOut, user }) => {
   );
 };
 
-export default withAuthenticator(SignIn);
+export default withAuthenticator(SignIn, {
+  components: {
+    Head,
+    SignIn: {
+      Header: SignInHeader,
+      Footer: SignInFooter,
+    },
+    Footer,
+  },
+})[(<signOut />)];

@@ -14,6 +14,10 @@ import Paper from "@mui/material/Paper";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import Chip from "@mui/material/Chip";
+import { Footer } from "./Footer";
+import { Head } from "./Head";
+import { SignInHeader } from "./SignInHeader";
+import { SignInFooter } from "./SignInFooter";
 import Stack from "@mui/material/Stack";
 import FaceIcon from "@mui/icons-material/Face";
 import Chatbot from "./Chatbot";
@@ -185,4 +189,13 @@ function Header(user) {
   );
 }
 
-export default withAuthenticator(Header);
+export default withAuthenticator(Header, {
+  components: {
+    Head,
+    SignIn: {
+      Header: SignInHeader,
+      Footer: SignInFooter,
+    },
+    Footer,
+  },
+});
