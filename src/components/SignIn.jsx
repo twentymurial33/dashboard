@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -11,10 +11,9 @@ import background from "../amazon.jpg";
 import { styled } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import { useNavigate, Link } from "react-router-dom";
-import Landing from "./Header";
-import UserPool from "../UserPool";
-import { Amplify } from "aws-amplify";
+import Chip from "@mui/material/Chip";
+import FaceIcon from "@mui/icons-material/Face";
+import { Amplify, Auth } from "aws-amplify";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import awsExports from "../aws-exports.js";
@@ -31,20 +30,18 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   },
 }));
 
+async function signOut() {
+  try {
+    await Auth.signOut();
+  } catch (error) {
+    console.log("error signing out: ", error);
+  }
+}
+
 const SignIn = ({ signOut, user }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const onSubmit = (event) => {
-  //   event.preventDefault();
-  //   console.log(event);
-  //   UserPool.signIn(email, password, [], null, (err, data) => {
-  //     if (err) {
-  //       console.error(err);
-  //     }
-  //     console.log(data);
-  //   });
-  // };
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ flexGrow: 1 }}>
@@ -96,8 +93,15 @@ const SignIn = ({ signOut, user }) => {
             }}
           >
             <Box component="form" sx={{ mt: 1 }}>
-              <h1>Hello {user.username}</h1>
-              {/* <button onClick={signOut}>Sign out</button> */}
+              <Button>
+                Hello {user.username}
+                <Chip
+                  icon={<FaceIcon />}
+                  label="Bella Anindo"
+                  variant="outlined"
+                  color="warning"
+                />
+              </Button>
               <TextField
                 margin="normal"
                 required

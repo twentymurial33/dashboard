@@ -72,7 +72,7 @@ const Drawer = styled(MuiDrawer, {
 
 const mdTheme = createTheme();
 
-function Header() {
+function Header(user) {
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -114,12 +114,15 @@ function Header() {
               Amazon Everest Dashboards
             </Typography>
             <Stack direction="row" spacing={1}>
-              <Chip
-                icon={<FaceIcon />}
-                label="Bella Anindo"
-                variant="outlined"
-                color="warning"
-              />
+              <Button>
+                {user.username}
+                <Chip
+                  icon={<FaceIcon />}
+                  label="Bella Anindo"
+                  variant="outlined"
+                  color="warning"
+                />
+              </Button>
             </Stack>
           </Toolbar>
         </AppBar>
@@ -153,26 +156,28 @@ function Header() {
         >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-              <Grid item xs={12} md={4} lg={3}>
-                <iframe
-                  title="This is a unique title"
-                  width="960"
-                  height="720"
-                  src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/567024620811/dashboards/ecf68f88-10fa-45e7-a657-8ad14d420023?directory_alias=concave"
-                ></iframe>
-              </Grid>
-              <Grid item xs={12} md={8} lg={9}></Grid>
+            <Paper>
+              <Grid container spacing={3}>
+                <Grid item xs={12} md={4} lg={3}>
+                  <iframe
+                    title="This is a unique title"
+                    width="1060"
+                    height="680"
+                    src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/567024620811/dashboards/ecf68f88-10fa-45e7-a657-8ad14d420023?directory_alias=concave"
+                  ></iframe>
+                </Grid>
+                <Grid item xs={12} md={8} lg={9}></Grid>
 
-              <Grid item xs={12} md={4} lg={3}>
-                <iframe
-                  title="This is a unique title"
-                  width="960"
-                  height="720"
-                  src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/567024620811/dashboards/ecf68f88-10fa-45e7-a657-8ad14d420023?directory_alias=concave"
-                ></iframe>
+                <Grid item xs={12} md={4} lg={3}>
+                  <iframe
+                    title="This is a unique title"
+                    width="1060"
+                    height="680"
+                    src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/567024620811/dashboards/ecf68f88-10fa-45e7-a657-8ad14d420023?directory_alias=concave"
+                  ></iframe>
+                </Grid>
               </Grid>
-            </Grid>
+            </Paper>
           </Container>
         </Box>
       </Box>

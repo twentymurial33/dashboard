@@ -1,14 +1,13 @@
 import * as React from "react";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
-import Chat from "../chatbot.jpg";
 
 export default function MouseOverPopover() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handlePopoverOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  // const handlePopoverOpen = (event) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
 
   const handlePopoverClose = () => {
     setAnchorEl(null);
@@ -18,14 +17,6 @@ export default function MouseOverPopover() {
 
   return (
     <div>
-      <img
-        src={Chat}
-        style={{ height: "160px" }}
-        aria-owns={open ? "mouse-over-popover" : undefined}
-        aria-haspopup="true"
-        onMouseEnter={handlePopoverOpen}
-        onMouseLeave={handlePopoverClose}
-      />
       <Popover
         id="mouse-over-popover"
         sx={{

@@ -1,9 +1,11 @@
 import { Auth } from "aws-amplify";
 
-async function signIn() {
+async function signOut() {
   try {
-    const user = await Auth.signIn(username, password);
+    await Auth.signOut();
   } catch (error) {
-    console.log("error signing in", error);
+    console.log("error signing out: ", error);
   }
 }
+
+export default signOut;
