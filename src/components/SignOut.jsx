@@ -1,20 +1,18 @@
-import { Auth, Amplify } from "aws-amplify";
-import { withAuthenticator, SignOut } from "@aws-amplify/ui-react";
-import "@aws-amplify/ui-react/styles.css";
-import awsExports from "../aws-exports.js";
-Amplify.configure(awsExports);
+import { Auth } from "aws-amplify";
 
 async function SignOut() {
   try {
-    await Auth.SignOut({ global: true });
+    await Auth.SignOut();
   } catch (error) {
     console.log("error signing out: ", error);
   }
   return (
     <div>
-      <button onClick={SignOut}>SignOut</button>;
+      <button onClick={this.SignOut} className="signOutButton">
+        SignOut
+      </button>
     </div>
   );
 }
 
-export default withAuthenticator(SignOut);
+export default SignOut;

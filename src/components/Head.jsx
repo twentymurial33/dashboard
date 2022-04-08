@@ -5,7 +5,9 @@ export function Head() {
   const { tokens } = useTheme();
 
   return (
-    <div style={{ backgroundImage: `url(${background})` }}></div>
+    <div style={{ backgroundImage: `url(${background})` }}>
+      <Image src="../amazon.jpg" width="100%" height="100%" objectFit="cover" />
+    </div>
     // <Image
     //   alt="logo"
     //   src={{
