@@ -1,6 +1,4 @@
 import Landing from "./components/Header";
-// import SignIn from "./components/SignIn";
-// import Layout from "./components/layout/Layouts";
 import Profile from "./components/Profile";
 import { BrowserRouter as Router, useRoutes } from "react-router-dom";
 import SignOut from "./components/SignOut";
