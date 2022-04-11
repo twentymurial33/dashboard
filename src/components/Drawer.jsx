@@ -12,6 +12,10 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import PersonIcon from "@mui/icons-material/Person";
+import MarkEmailUnreadIcon from "@mui/icons-material/MarkEmailUnread";
+import CampaignIcon from "@mui/icons-material/Campaign";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
@@ -91,7 +95,7 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div"></Typography>
+          {/* <Typography variant="h6" noWrap component="div"></Typography> */}
         </Toolbar>
       </AppBar>
       <Drawer
@@ -106,6 +110,7 @@ export default function PersistentDrawerLeft() {
         variant="persistent"
         anchor="left"
         open={open}
+        style={{ color: "lightblue" }}
       >
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
@@ -118,21 +123,17 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          {["Dashboard", "Profile", "Notifications"].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 3 === 0 ? (
+                  <DashboardIcon />
+                ) : (
+                  <>
+                    <PersonIcon />
+                    <CampaignIcon />
+                  </>
+                )}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>

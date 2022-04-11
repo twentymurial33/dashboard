@@ -14,7 +14,7 @@ export default function Footer() {
 
   return (
     <BottomNavigation
-      sx={{ width: 1090 }}
+      sx={{ width: 1200, height: 100 }}
       value={value}
       onChange={handleChange}
       style={{ backgroundColor: "grey", marginLeft: "240px" }}
