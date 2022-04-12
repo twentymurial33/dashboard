@@ -12,39 +12,16 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import PersonIcon from "@mui/icons-material/Person";
-import CampaignIcon from "@mui/icons-material/Campaign";
 import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
 import FaceIcon from "@mui/icons-material/Face";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { Link } from "react-router-dom";
 import SignOut from "./authentication/SignOut";
 
 const drawerWidth = 240;
-
-const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
-  ({ theme, open }) => ({
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: `-${drawerWidth}px`,
-    ...(open && {
-      transition: theme.transitions.create("margin", {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      marginLeft: 0,
-    }),
-  })
-);
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -68,7 +45,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: "flex-end",
 }));
@@ -91,7 +67,7 @@ export default function PersistentDrawerLeft() {
       <AppBar
         position="absolute"
         open={open}
-        style={{ backgroundColor: "#2a293d", height: "120px" }}
+        style={{ backgroundColor: "#2d2c40", height: "80px" }}
       >
         <Toolbar
           sx={{
@@ -121,7 +97,6 @@ export default function PersistentDrawerLeft() {
           </Typography>
           <Stack direction="row" spacing={1}>
             <Button>
-              {/* {user.username} */}
               <Chip
                 icon={<FaceIcon />}
                 label="Bella Anindo"
@@ -157,27 +132,25 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          {["Dashboard", "Profile", "Notifications", "SignOut"].map(
+          {["Dashboard", "Profile", "Notifications", "Actions"].map(
             (text, index) => (
               <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 3 === 0 ? (
-                    <DashboardIcon />
-                  ) : (
-                    <>
-                      <PersonIcon /> <ExitToAppIcon />{" "}
-                    </>
-                  )}
-                </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
             )
           )}
         </List>
+        <Typography
+          component={Link}
+          to="SignOut"
+          variant="button"
+          color="info"
+          fontWeight="medium"
+          textGradient
+        >
+          SignOut
+        </Typography>
       </Drawer>
-      <Main open={open}>
-        <DrawerHeader />
-      </Main>
     </Box>
   );
 }
