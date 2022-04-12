@@ -14,13 +14,16 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonIcon from "@mui/icons-material/Person";
-import MarkEmailUnreadIcon from "@mui/icons-material/MarkEmailUnread";
 import CampaignIcon from "@mui/icons-material/Campaign";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import Stack from "@mui/material/Stack";
+import FaceIcon from "@mui/icons-material/Face";
+import Button from "@mui/material/Button";
+import Chip from "@mui/material/Chip";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import SignOut from "./authentication/SignOut";
 
 const drawerWidth = 240;
 
@@ -46,15 +49,16 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
-  transition: theme.transitions.create(["margin", "width"], {
+  zIndex: theme.zIndex.drawer + 1,
+  transition: theme.transitions.create(["width", "margin"], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
   ...(open && {
+    marginLeft: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: `${drawerWidth}px`,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
+    transition: theme.transitions.create(["width", "margin"], {
+      easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
   }),
@@ -73,29 +77,59 @@ export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
   const handleDrawerClose = () => {
     setOpen(false);
   };
 
+  const toggleDrawer = () => {
+    setOpen(!open);
+  };
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
+
+      <AppBar
+        position="absolute"
+        open={open}
+        style={{ backgroundColor: "#2a293d", height: "120px" }}
+      >
+        <Toolbar
+          sx={{
+            pr: "24px",
+          }}
+        >
           <IconButton
+            edge="start"
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: "none" }) }}
+            onClick={toggleDrawer}
+            sx={{
+              marginRight: "36px",
+              ...(open && { display: "none" }),
+            }}
           >
             <MenuIcon />
           </IconButton>
-          {/* <Typography variant="h6" noWrap component="div"></Typography> */}
+          <Typography
+            component="h1"
+            variant="h6"
+            color="inherit"
+            noWrap
+            sx={{ flexGrow: 1 }}
+          >
+            Amazon Everest Dashboards
+          </Typography>
+          <Stack direction="row" spacing={1}>
+            <Button>
+              {/* {user.username} */}
+              <Chip
+                icon={<FaceIcon />}
+                label="Bella Anindo"
+                variant="outlined"
+                color="warning"
+              />
+            </Button>
+          </Stack>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -110,7 +144,7 @@ export default function PersistentDrawerLeft() {
         variant="persistent"
         anchor="left"
         open={open}
-        style={{ color: "lightblue" }}
+        style={{ backgroundColor: "#2a293d" }}
       >
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
@@ -123,21 +157,24 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          {["Dashboard", "Profile", "Notifications"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 3 === 0 ? (
-                  <DashboardIcon />
-                ) : (
-                  <>
-                    <PersonIcon />
-                    <CampaignIcon />
-                  </>
-                )}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          {["Dashboard", "Profile", "Notifications", "SignOut"].map(
+            (text, index) => (
+              <ListItem button key={text}>
+                <ListItemIcon>
+                  {index % 3 === 0 ? (
+                    <DashboardIcon />
+                  ) : (
+                    <>
+                      <PersonIcon />
+                      <CampaignIcon />
+                      <ExitToAppIcon />
+                    </>
+                  )}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            )
+          )}
         </List>
       </Drawer>
       <Main open={open}>

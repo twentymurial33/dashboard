@@ -5,10 +5,6 @@ import Typography from "@mui/material/Typography";
 export default function MouseOverPopover() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-  // const handlePopoverOpen = (event) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
-
   const handlePopoverClose = () => {
     setAnchorEl(null);
   };
