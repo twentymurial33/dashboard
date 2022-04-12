@@ -165,9 +165,7 @@ export default function PersistentDrawerLeft() {
                     <DashboardIcon />
                   ) : (
                     <>
-                      <PersonIcon />
-                      <CampaignIcon />
-                      <ExitToAppIcon />
+                      <PersonIcon /> <ExitToAppIcon />{" "}
                     </>
                   )}
                 </ListItemIcon>
