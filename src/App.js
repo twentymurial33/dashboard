@@ -1,4 +1,5 @@
 import Landing from "./components/Header";
+import SignOut from "./layout/authentication/index";
 import { BrowserRouter as Router, useRoutes } from "react-router-dom";
 
 const AppWrapper = () => {
@@ -7,7 +8,7 @@ const AppWrapper = () => {
       path: "/",
       element: <Landing />,
     },
-    // { path: "/Landing", element: <Landing /> },
+    { path: "/Auth", element: <SignOut /> },
 
     // { path: "/SignOut", element: <SignOut /> },
   ]);

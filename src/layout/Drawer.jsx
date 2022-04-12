@@ -19,7 +19,6 @@ import FaceIcon from "@mui/icons-material/Face";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
 import { Link } from "react-router-dom";
-import SignOut from "./authentication/SignOut";
 
 const drawerWidth = 240;
 
@@ -60,6 +59,7 @@ export default function PersistentDrawerLeft() {
   const toggleDrawer = () => {
     setOpen(!open);
   };
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -146,7 +146,6 @@ export default function PersistentDrawerLeft() {
           variant="button"
           color="info"
           fontWeight="medium"
-          textGradient
         >
           SignOut
         </Typography>
