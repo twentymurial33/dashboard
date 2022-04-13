@@ -18,6 +18,7 @@ import Stack from "@mui/material/Stack";
 import FaceIcon from "@mui/icons-material/Face";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
+import Links from "./Links";
 import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -63,11 +64,10 @@ export default function PersistentDrawerLeft() {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-
       <AppBar
         position="absolute"
         open={open}
-        style={{ backgroundColor: "#2d2c40", height: "80px" }}
+        style={{ backgroundColor: "#2d2c40", height: "55px" }}
       >
         <Toolbar
           sx={{
@@ -93,7 +93,7 @@ export default function PersistentDrawerLeft() {
             noWrap
             sx={{ flexGrow: 1 }}
           >
-            Amazon Everest Dashboards
+            Amazon-UI Dashboards
           </Typography>
           <Stack direction="row" spacing={1}>
             <Button>
@@ -132,23 +132,8 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          {["Dashboard", "Profile", "Notifications", "Actions"].map(
-            (text, index) => (
-              <ListItem button key={text}>
-                <ListItemText primary={text} />
-              </ListItem>
-            )
-          )}
+          <Links />
         </List>
-        <Typography
-          component={Link}
-          to="SignOut"
-          variant="button"
-          color="info"
-          fontWeight="medium"
-        >
-          SignOut
-        </Typography>
       </Drawer>
     </Box>
   );
