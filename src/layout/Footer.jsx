@@ -17,7 +17,11 @@ export default function Footer() {
       sx={{ width: 1400, height: 100 }}
       value={value}
       onChange={handleChange}
-      style={{ backgroundColor: "grey", marginLeft: "240px" }}
+      style={{
+        backgroundColor: "grey",
+        marginRight: "240px",
+        marginLeft: "20px",
+      }}
     >
       <BottomNavigationAction
         label="Recents"

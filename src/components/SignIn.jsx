@@ -133,8 +133,6 @@ export default withAuthenticator(SignIn, {
     Head,
     SignIn: {
       Header: SignInHeader,
-      Footer: SignInFooter,
     },
-    Footer,
   },
 })[(<signOut />)];
