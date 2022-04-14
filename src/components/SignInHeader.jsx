@@ -2,10 +2,8 @@ import { Heading, useTheme } from "@aws-amplify/ui-react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { styled } from "@mui/material/styles";
 
-const theme = createTheme();
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   alignItems: "flex-start",
   paddingTop: theme.spacing(1),

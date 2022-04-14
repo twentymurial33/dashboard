@@ -3,12 +3,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Drawer from "../layout/Drawer";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-// import Paper from "@mui/material/Paper";
-// import { styled } from "@mui/material/styles";
-// import { Footer } from "./Footer";
 import { Head } from "./Head";
 import { SignInHeader } from "./SignInHeader";
-// import { SignInFooter } from "./SignInFooter";
 import Footer from "../layout/Footer";
 import { Amplify } from "aws-amplify";
 import { withAuthenticator } from "@aws-amplify/ui-react";
@@ -24,18 +20,10 @@ function Header(user) {
     setOpen(!open);
   };
 
-  // const Item = styled(Paper)(({ theme }) => ({
-  //   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#dde4f0",
-  //   ...theme.typography.body2,
-  //   padding: theme.spacing(6),
-  //   textAlign: "center",
-  //   color: theme.palette.text.secondary,
-  // }));
-
   return (
     <ThemeProvider theme={mdTheme}>
       <Drawer />
-      {/* <Box sx={{ width: 1 }}> */}
+      {/* <AmplifySignOut /> */}
       <Box
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
@@ -102,9 +90,6 @@ function Header(user) {
           ></iframe>
         </Grid>
       </Box>
-      {/* </Box> */}
-
-      {/* <Footer /> */}
     </ThemeProvider>
   );
 }
