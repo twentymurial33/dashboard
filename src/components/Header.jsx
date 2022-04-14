@@ -5,7 +5,6 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { Head } from "./Head";
 import { SignInHeader } from "./SignInHeader";
-import Footer from "../layout/Footer";
 import { Amplify } from "aws-amplify";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
@@ -15,15 +14,9 @@ Amplify.configure(awsExports);
 const mdTheme = createTheme();
 
 function Header(user) {
-  const [open, setOpen] = React.useState(true);
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
-
   return (
     <ThemeProvider theme={mdTheme}>
       <Drawer />
-      {/* <AmplifySignOut /> */}
       <Box
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"

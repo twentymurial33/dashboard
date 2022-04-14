@@ -95,16 +95,8 @@ export default function PersistentDrawerLeft() {
           >
             Amazon-UI Dashboards
           </Typography>
-          <Stack direction="row" spacing={1}>
-            <Button>
-              <Chip
-                icon={<FaceIcon />}
-                label="Bella Anindo"
-                variant="outlined"
-                color="warning"
-              />
-            </Button>
-          </Stack>
+          <h4>Light Mode | Dark Mode</h4>
+          <Stack direction="row" spacing={1}></Stack>
         </Toolbar>
       </AppBar>
       <Drawer

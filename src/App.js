@@ -1,5 +1,5 @@
 import Landing from "./components/Header";
-import SignOut from "./layout/authentication/index";
+import Profile from "./pages/Profile";
 import { BrowserRouter as Router, useRoutes } from "react-router-dom";
 
 const AppWrapper = () => {
@@ -8,9 +8,8 @@ const AppWrapper = () => {
       path: "/",
       element: <Landing />,
     },
-    { path: "/Auth", element: <SignOut /> },
 
-    // { path: "/SignOut", element: <SignOut /> },
+    { path: "/Profile", element: <Profile /> },
   ]);
   return routes;
 };

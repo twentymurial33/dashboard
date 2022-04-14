@@ -1,22 +1,18 @@
-import React from "react";
-import { Auth, Text, View } from "aws-amplify";
+// import React from "react";
+// import { Amplify } from "aws-amplify";
+// import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
+// import "@aws-amplify/ui-react/styles.css";
+// import awsExports from "../aws-exports.js";
+// Amplify.configure(awsExports);
 
-const Authentication = (props) => {
-  function signOut() {
-    Auth.signOut()
-      .then(() => {
-        props.onStateChange("signedOut", null);
-      })
-      .catch((err) => {
-        console.log("err: ", err);
-      });
-  }
-  return (
-    <View>
-      <Text>Hello World</Text>
-      <Text onPress={signOut}>Sign Out</Text>
-    </View>
-  );
-};
+// function SignOut() {
+//   return (
+//     <div>
+//       <header>
+//         Hello <AmplifySignOut />
+//       </header>
+//     </div>
+//   );
+// }
 
-export default Authentication;
+// export default withAuthenticator(SignOut);
