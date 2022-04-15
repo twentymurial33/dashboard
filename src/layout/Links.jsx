@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import SignOut from "./authentication/index";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -100,9 +101,8 @@ export default function CustomizedMenus() {
         <MenuItem onClick={handleClose} disableRipple>
           Analytics
         </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          SignOut
-        </MenuItem>
+        <MenuItem onClick={handleClose} disableRipple></MenuItem>
+        <SignOut />
       </StyledMenu>
     </div>
   );
