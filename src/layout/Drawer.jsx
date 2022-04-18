@@ -12,14 +12,10 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
-import FaceIcon from "@mui/icons-material/Face";
 import Button from "@mui/material/Button";
-import Chip from "@mui/material/Chip";
 import Links from "./Links";
-import { Link } from "react-router-dom";
+import ToogleColorMode from "../components/ToggleDark";
 
 const drawerWidth = 240;
 
@@ -52,6 +48,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [darkMode, setDarkMode] = React.useState(true);
 
   const handleDrawerClose = () => {
     setOpen(false);
@@ -86,6 +83,7 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
+
           <Typography
             component="h1"
             variant="h6"
@@ -95,7 +93,6 @@ export default function PersistentDrawerLeft() {
           >
             Amazon-UI Dashboards
           </Typography>
-          <h4>Light Mode | Dark Mode</h4>
           <Stack direction="row" spacing={1}></Stack>
         </Toolbar>
       </AppBar>
