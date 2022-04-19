@@ -14,9 +14,9 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import Links from "./Links";
+import Links from "../components/Nav";
 import { StyledEngineProvider } from "@mui/material/styles";
-import ToggleDark from "../components/ToggleDark";
+// import ToggleDark from "../components/ToggleDark";
 
 const drawerWidth = 320;
 
@@ -73,20 +73,20 @@ export default function PersistentDrawerLeft() {
             pr: "24px",
           }}
         >
-          <ToggleDark>
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              onClick={toggleDrawer}
-              sx={{
-                marginRight: "36px",
-                ...(open && { display: "none" }),
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
-          </ToggleDark>
+          {/* <ToggleDark> */}
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            onClick={toggleDrawer}
+            sx={{
+              marginRight: "36px",
+              ...(open && { display: "none" }),
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
+          {/* </ToggleDark> */}
           <Typography
             component="h1"
             variant="h6"

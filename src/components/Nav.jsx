@@ -4,7 +4,9 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import SignOut from "./authentication/index";
+import SignOut from "../layout/authentication/index";
+import Divider from "@mui/material/Divider";
+import { Link } from "react-router-dom";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -90,17 +92,18 @@ export default function CustomizedMenus() {
         style={{ width: "200px", height: "300px" }}
       >
         <MenuItem onClick={handleClose} disableRipple>
-          Security Reviews
+          <Link to="/Security">Security Reviews</Link>
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
-          Application Reviews
+          <Link to="/Application">Application Reviews</Link>
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
-          Design Controls
+          <Link to="/Design">Design Controls</Link>
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
-          Analytics
+          <Link to="/Analytics">Analytics</Link>
         </MenuItem>
+        <Divider />
         <MenuItem onClick={handleClose} disableRipple></MenuItem>
         <SignOut />
       </StyledMenu>

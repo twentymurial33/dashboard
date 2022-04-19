@@ -1,11 +1,43 @@
-import { Flex, Text, useTheme } from "@aws-amplify/ui-react";
+import * as React from "react";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import FolderIcon from "@mui/icons-material/Folder";
+import RestoreIcon from "@mui/icons-material/Restore";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
-export function Footer() {
-  const { tokens } = useTheme();
+export default function Footer() {
+  const [value, setValue] = React.useState("recents");
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
-    <Flex justifyContent="center" padding={tokens.space.medium}>
-      <Text> 2022 &copy; All Rights Reserved</Text>
-    </Flex>
+    <BottomNavigation
+      sx={{ width: 1400, height: 100 }}
+      value={value}
+      onChange={handleChange}
+      style={{
+        backgroundColor: "grey",
+        marginRight: "240px",
+        marginLeft: "20px",
+      }}
+    >
+      <BottomNavigationAction
+        label="Recents"
+        value="recents"
+        icon={<RestoreIcon />}
+      />
+      <BottomNavigationAction
+        label="Favorites"
+        value="favorites"
+        icon={<FavoriteIcon />}
+      />
+      <BottomNavigationAction
+        label="Folder"
+        value="folder"
+        icon={<FolderIcon />}
+      />
+    </BottomNavigation>
   );
 }

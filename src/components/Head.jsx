@@ -1,3 +1,4 @@
+import React from "react";
 import { Image, useTheme } from "@aws-amplify/ui-react";
 import background from "../assets/amazon.jpg";
 
