@@ -15,9 +15,10 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Links from "./Links";
-import ToogleColorMode from "../components/ToggleDark";
+import { StyledEngineProvider } from "@mui/material/styles";
+import ToggleDark from "../components/ToggleDark";
 
-const drawerWidth = 240;
+const drawerWidth = 320;
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -61,6 +62,7 @@ export default function PersistentDrawerLeft() {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
+
       <AppBar
         position="absolute"
         open={open}
@@ -71,19 +73,20 @@ export default function PersistentDrawerLeft() {
             pr: "24px",
           }}
         >
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            onClick={toggleDrawer}
-            sx={{
-              marginRight: "36px",
-              ...(open && { display: "none" }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-
+          <ToggleDark>
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="open drawer"
+              onClick={toggleDrawer}
+              sx={{
+                marginRight: "36px",
+                ...(open && { display: "none" }),
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+          </ToggleDark>
           <Typography
             component="h1"
             variant="h6"
@@ -93,9 +96,11 @@ export default function PersistentDrawerLeft() {
           >
             Amazon-UI Dashboards
           </Typography>
+
           <Stack direction="row" spacing={1}></Stack>
         </Toolbar>
       </AppBar>
+
       <Drawer
         sx={{
           width: drawerWidth,

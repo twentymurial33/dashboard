@@ -4,7 +4,6 @@ import Drawer from "../layout/Drawer";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { Head } from "./Head";
-import ToggleColorMode from "./ToggleDark";
 import { SignInHeader } from "./SignInHeader";
 import { Amplify } from "aws-amplify";
 import { withAuthenticator } from "@aws-amplify/ui-react";
@@ -17,7 +16,6 @@ const mdTheme = createTheme();
 function Header(user) {
   return (
     <ThemeProvider theme={mdTheme}>
-      <ToggleColorMode />
       <Drawer />
       <Box
         display="grid"

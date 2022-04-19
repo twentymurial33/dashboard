@@ -1,6 +1,8 @@
 import Landing from "./components/Header";
 import Profile from "./pages/Profile";
 import { BrowserRouter as Router, useRoutes } from "react-router-dom";
+import { StyledEngineProvider } from "@mui/material/styles";
+import ToggleDark from "./components/ToggleDark";
 
 const AppWrapper = () => {
   let routes = useRoutes([
@@ -17,9 +19,12 @@ const AppWrapper = () => {
 function App() {
   return (
     <div className="App">
-      <Router>
-        <AppWrapper />
-      </Router>
+      <StyledEngineProvider injectFirst>
+        <ToggleDark />
+        <Router>
+          <AppWrapper />
+        </Router>
+      </StyledEngineProvider>
     </div>
   );
 }

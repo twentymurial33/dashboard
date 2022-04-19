@@ -19,7 +19,7 @@ function MyApp() {
         justifyContent: "center",
         bgcolor: "background.default",
         color: "text.primary",
-        borderRadius: 1,
+        // borderRadius: 1,
         p: 3,
       }}
     >
@@ -39,7 +39,7 @@ function MyApp() {
   );
 }
 
-export default function ToggleColorMode() {
+export default function ToggleDark() {
   const [mode, setMode] = React.useState("light");
   const colorMode = React.useMemo(
     () => ({
