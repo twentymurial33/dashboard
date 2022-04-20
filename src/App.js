@@ -6,7 +6,7 @@ import { BrowserRouter as Router, useRoutes } from "react-router-dom";
 import Design from "./Design";
 import Analytics from "./Analytics";
 import Security from "./Security";
-import Profile from "./Profile";
+import Application from "./Application";
 
 const LightTheme = {
   pageBackground: "white",
@@ -34,7 +34,7 @@ const AppWrapper = () => {
 
     { path: "/Design", element: <Design /> },
     { path: "/Security", element: <Security /> },
-    { path: "/Profile", element: <Profile /> },
+    { path: "/Application", element: <Application /> },
     { path: "/Analytics", element: <Analytics /> },
   ]);
   return routes;

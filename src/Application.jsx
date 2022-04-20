@@ -7,7 +7,7 @@ import Nav from "./components/Nav";
 
 const mdTheme = createTheme();
 
-function Security() {
+function Application() {
   return (
     <>
       <Nav />
@@ -86,4 +86,4 @@ function Security() {
   );
 }
 
-export default Security;
+export default Application;
