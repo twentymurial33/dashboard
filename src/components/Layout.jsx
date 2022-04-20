@@ -6,7 +6,6 @@ function Layout(props) {
     <>
       <Nav />
       <main>{children}</main>
-      <footer>Copyright 2022</footer>
     </>
   );
 }
