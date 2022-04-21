@@ -13,8 +13,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Stack from "@mui/material/Stack";
+import Demo from "../Demo";
 import Button from "@mui/material/Button";
-import Links from "../components/Nav";
+import Links from "./Nav";
 import { StyledEngineProvider } from "@mui/material/styles";
 // import ToggleDark from "../components/ToggleDark";
 
@@ -60,75 +61,76 @@ export default function PersistentDrawerLeft() {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
+    <StyledEngineProvider injectFirst>
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
 
-      <AppBar
-        position="absolute"
-        open={open}
-        style={{ backgroundColor: "#2d2c40", height: "55px" }}
-      >
-        <Toolbar
-          sx={{
-            pr: "24px",
-          }}
+        <AppBar
+          position="absolute"
+          open={open}
+          style={{ backgroundColor: "#2d2c40", height: "55px" }}
         >
-          {/* <ToggleDark> */}
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            onClick={toggleDrawer}
+          <Toolbar
             sx={{
-              marginRight: "36px",
-              ...(open && { display: "none" }),
+              pr: "24px",
             }}
           >
-            <MenuIcon />
-          </IconButton>
-          {/* </ToggleDark> */}
-          <Typography
-            component="h1"
-            variant="h6"
-            color="inherit"
-            noWrap
-            sx={{ flexGrow: 1 }}
-          >
-            Amazon-UI Dashboards
-          </Typography>
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="open drawer"
+              onClick={toggleDrawer}
+              sx={{
+                marginRight: "36px",
+                ...(open && { display: "none" }),
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Demo />
+            <Typography
+              component="h1"
+              variant="h6"
+              color="inherit"
+              noWrap
+              sx={{ flexGrow: 1 }}
+            >
+              Amazon-UI Dashboards
+            </Typography>
 
-          <Stack direction="row" spacing={1}></Stack>
-        </Toolbar>
-      </AppBar>
+            <Stack direction="row" spacing={1}></Stack>
+          </Toolbar>
+        </AppBar>
 
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
+        <Drawer
+          sx={{
             width: drawerWidth,
-            boxSizing: "border-box",
-          },
-        }}
-        variant="persistent"
-        anchor="left"
-        open={open}
-        style={{ backgroundColor: "#2a293d" }}
-      >
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "ltr" ? (
-              <ChevronLeftIcon />
-            ) : (
-              <ChevronRightIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          <Links />
-        </List>
-      </Drawer>
-    </Box>
+            flexShrink: 0,
+            "& .MuiDrawer-paper": {
+              width: drawerWidth,
+              boxSizing: "border-box",
+            },
+          }}
+          variant="persistent"
+          anchor="left"
+          open={open}
+          style={{ backgroundColor: "#2a293d" }}
+        >
+          <DrawerHeader>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === "ltr" ? (
+                <ChevronLeftIcon />
+              ) : (
+                <ChevronRightIcon />
+              )}
+            </IconButton>
+          </DrawerHeader>
+          <Divider />
+          <List>
+            <Links />
+          </List>
+        </Drawer>
+      </Box>
+    </StyledEngineProvider>
   );
 }

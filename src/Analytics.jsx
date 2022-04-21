@@ -1,5 +1,5 @@
 import React from "react";
-import Drawer from "./layout/Drawer";
+import Drawer from "./components/Drawer";
 import Box from "@mui/material/Box";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
