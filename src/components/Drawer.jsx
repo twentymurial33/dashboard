@@ -13,11 +13,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Stack from "@mui/material/Stack";
-import Demo from "../Demo";
 import Button from "@mui/material/Button";
 import Links from "./Nav";
-import { StyledEngineProvider } from "@mui/material/styles";
-// import ToggleDark from "../components/ToggleDark";
 
 const drawerWidth = 320;
 
@@ -61,76 +58,74 @@ export default function PersistentDrawerLeft() {
   };
 
   return (
-    <StyledEngineProvider injectFirst>
-      <Box sx={{ display: "flex" }}>
-        <CssBaseline />
+    <Box sx={{ display: "flex" }}>
+      <CssBaseline />
 
-        <AppBar
-          position="absolute"
-          open={open}
-          style={{ backgroundColor: "#2d2c40", height: "55px" }}
+      <AppBar
+        position="absolute"
+        open={open}
+        style={{ backgroundColor: "#2d2c40", height: "55px" }}
+      >
+        <Toolbar
+          sx={{
+            pr: "24px",
+          }}
         >
-          <Toolbar
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            onClick={toggleDrawer}
             sx={{
-              pr: "24px",
+              marginRight: "36px",
+              ...(open && { display: "none" }),
             }}
           >
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              onClick={toggleDrawer}
-              sx={{
-                marginRight: "36px",
-                ...(open && { display: "none" }),
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Demo />
-            <Typography
-              component="h1"
-              variant="h6"
-              color="inherit"
-              noWrap
-              sx={{ flexGrow: 1 }}
-            >
-              Amazon-UI Dashboards
-            </Typography>
+            <MenuIcon />
+          </IconButton>
 
-            <Stack direction="row" spacing={1}></Stack>
-          </Toolbar>
-        </AppBar>
+          <Typography
+            component="h1"
+            variant="h6"
+            color="inherit"
+            noWrap
+            sx={{ flexGrow: 1 }}
+          >
+            Amazon-UI Dashboards
+          </Typography>
 
-        <Drawer
-          sx={{
+          <Stack direction="row" spacing={1}></Stack>
+        </Toolbar>
+      </AppBar>
+
+      <Drawer
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          "& .MuiDrawer-paper": {
             width: drawerWidth,
-            flexShrink: 0,
-            "& .MuiDrawer-paper": {
-              width: drawerWidth,
-              boxSizing: "border-box",
-            },
-          }}
-          variant="persistent"
-          anchor="left"
-          open={open}
-          style={{ backgroundColor: "#2a293d" }}
-        >
-          <DrawerHeader>
-            <IconButton onClick={handleDrawerClose}>
-              {theme.direction === "ltr" ? (
-                <ChevronLeftIcon />
-              ) : (
-                <ChevronRightIcon />
-              )}
-            </IconButton>
-          </DrawerHeader>
-          <Divider />
-          <List>
-            <Links />
-          </List>
-        </Drawer>
-      </Box>
-    </StyledEngineProvider>
+            boxSizing: "border-box",
+          },
+        }}
+        variant="persistent"
+        anchor="left"
+        open={open}
+        style={{ backgroundColor: "#2a293d" }}
+      >
+        <DrawerHeader>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === "ltr" ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
+          </IconButton>
+        </DrawerHeader>
+        <Divider />
+        <List>
+          <Links />
+        </List>
+      </Drawer>
+    </Box>
   );
 }

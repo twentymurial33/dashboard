@@ -6,6 +6,8 @@ import Design from "./Design";
 import Analytics from "./Analytics";
 import Security from "./Security";
 import Application from "./Application";
+import Demo from "./Demo";
+import { StyledEngineProvider } from "@mui/material/styles";
 
 const AppWrapper = () => {
   let routes = useRoutes([
@@ -25,9 +27,12 @@ const AppWrapper = () => {
 function App() {
   return (
     <div className="App">
-      <Router>
-        <AppWrapper />
-      </Router>
+      <StyledEngineProvider injectFirst>
+        <Router>
+          <AppWrapper />
+          <Demo />
+        </Router>
+      </StyledEngineProvider>
     </div>
   );
 }
