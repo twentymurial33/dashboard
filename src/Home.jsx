@@ -1,15 +1,19 @@
 import * as React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Drawer from "../layout/Drawer";
+// import Drawer from "./components/Drawer";
 import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Paper from "@mui/material/Paper";
+import Toolbar from "@mui/material/Toolbar";
+import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import { Head } from "./Head";
-import Layout from "./Layout";
-import { SignInHeader } from "./SignInHeader";
+import { Head } from "./components/Head";
+import Layout from "./components/Layout";
+import { SignInHeader } from "./components/SignInHeader";
 import { Amplify } from "aws-amplify";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
-import awsExports from "../aws-exports.js";
+import awsExports from "./aws-exports.js";
 Amplify.configure(awsExports);
 
 const mdTheme = createTheme();
@@ -18,72 +22,59 @@ function Header(user) {
   return (
     <Layout>
       <ThemeProvider theme={mdTheme}>
-        <Drawer />
-        <Box
-          display="grid"
-          gridTemplateColumns="repeat(12, 1fr)"
-          gap={4}
-          style={{ paddingTop: "20px", display: "flex" }}
-        >
-          <Grid item md={2}>
-            <iframe
-              title="This is a unique title"
-              width="600"
-              marginTop="20px"
-              height="400"
-              // src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
-            ></iframe>
-          </Grid>
-          <Grid item md={2}>
-            <iframe
-              title="This is a unique title"
-              width="600"
-              height="400"
-              // src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
-            ></iframe>
-          </Grid>
+        {/* <Drawer /> */}
+        <Box sx={{ display: "flex" }}>
+          <CssBaseline />
+          <Box
+            component="main"
+            sx={{
+              backgroundColor: (theme) =>
+                theme.palette.mode === "light"
+                  ? theme.palette.grey[100]
+                  : theme.palette.grey[900],
+              flexGrow: 1,
+              height: "100vh",
+              overflow: "auto",
+            }}
+          >
+            <Toolbar />
+            <Container maxWidth="lg" sx={{ mt: 8, mb: 8 }}>
+              <Grid container spacing={3}>
+                <Grid item xs={12} md={8} lg={9}>
+                  <Paper
+                    sx={{
+                      p: 2,
+                      display: "flex",
+                      flexDirection: "column",
+                      height: 240,
+                    }}
+                  >
+                    <h2>Statistics</h2>
+                  </Paper>
+                </Grid>
+                <Grid item xs={12} md={4} lg={3}>
+                  <Paper
+                    sx={{
+                      p: 2,
+                      display: "flex",
+                      flexDirection: "column",
+                      height: 240,
+                    }}
+                  >
+                    <h2>No clue yet</h2>
+                  </Paper>
+                </Grid>
 
-          <Grid item md={2}>
-            <iframe
-              title="This is a unique title"
-              width="600"
-              height="400"
-              // src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
-            ></iframe>
-          </Grid>
-        </Box>
-        <Box
-          display="grid"
-          gridTemplateColumns="repeat(12, 1fr)"
-          gap={4}
-          style={{ paddingTop: "20px", display: "flex" }}
-        >
-          <Grid item md={2}>
-            <iframe
-              title="This is a unique title"
-              width="600"
-              marginTop="20px"
-              height="400"
-              // src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
-            ></iframe>
-          </Grid>
-          <Grid item md={2}>
-            <iframe
-              title="This is a unique title"
-              width="600"
-              height="400"
-              src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
-            ></iframe>
-          </Grid>
-
-          <Grid item md={2}>
-            <iframe
-              title="This is a unique title"
-              width="600"
-              height="400"
-              src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
-            ></iframe>
-          </Grid>
+                <Grid item xs={12}>
+                  <Paper
+                    sx={{ p: 12, display: "flex", flexDirection: "column" }}
+                  >
+                    <h3>Summary of Dashboards</h3>
+                  </Paper>
+                </Grid>
+              </Grid>
+            </Container>
+          </Box>
         </Box>
       </ThemeProvider>
     </Layout>
