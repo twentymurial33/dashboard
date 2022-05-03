@@ -1,5 +1,5 @@
 import React from "react";
-// import { useState } from "react";
+import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import Landing from "./components/Header";
 import { BrowserRouter as Router, useRoutes } from "react-router-dom";
 import Design from "./Design";
@@ -26,6 +26,7 @@ const AppWrapper = () => {
   ]);
   return routes;
 };
+const queryClient = new QueryClient();
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -61,6 +62,28 @@ function MyApp() {
   );
 }
 
+function Example() {
+  const { isLoading, error, data } = useQuery("repoData", () =>
+    fetch(
+      "https://api.github.com/repos/tannerlinsley/react-query"
+    ).then((res) => res.json())
+  );
+
+  if (isLoading) return "Loading...";
+
+  if (error) return "An error has occurred: " + error.message;
+
+  return (
+    <div>
+      <h1>{data.name}</h1>
+      <p>{data.description}</p>
+      <strong>👀 {data.subscribers_count}</strong>{" "}
+      <strong>✨ {data.stargazers_count}</strong>{" "}
+      <strong>🍴 {data.forks_count}</strong>
+    </div>
+  );
+}
+
 export default function App() {
   const [mode, setMode] = React.useState("light");
   const colorMode = React.useMemo(
@@ -87,6 +110,9 @@ export default function App() {
         <ThemeProvider theme={theme}>
           <Router>
             <AppWrapper />
+            <QueryClientProvider client={queryClient}>
+              <Example />
+            </QueryClientProvider>
             <MyApp />
           </Router>
         </ThemeProvider>
