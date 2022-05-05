@@ -10,6 +10,9 @@ import Grid from "@mui/material/Grid";
 import { Head } from "./components/Head";
 import Layout from "./components/Layout";
 import { SignInHeader } from "./components/SignInHeader";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+import Data from "./components/Data";
 import { Amplify } from "aws-amplify";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
@@ -18,6 +21,7 @@ Amplify.configure(awsExports);
 
 const mdTheme = createTheme();
 
+const queryClient = new QueryClient();
 function Header(user) {
   return (
     <Layout>
@@ -50,6 +54,9 @@ function Header(user) {
                     }}
                   >
                     <h2>Statistics</h2>
+                    <QueryClientProvider client={queryClient}>
+                      <Data />
+                    </QueryClientProvider>
                   </Paper>
                 </Grid>
                 <Grid item xs={12} md={4} lg={3}>

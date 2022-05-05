@@ -81,15 +81,13 @@ export default function App() {
     [mode]
   );
   return (
-    <div className="App">
-      <ColorModeContext.Provider value={colorMode}>
-        <ThemeProvider theme={theme}>
-          <Router>
-            <AppWrapper />
-            <MyApp />
-          </Router>
-        </ThemeProvider>
-      </ColorModeContext.Provider>
-    </div>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <AppWrapper />
+          <MyApp />
+        </Router>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 }
