@@ -51,7 +51,6 @@ const SignIn = ({ signOut, user }) => {
             >
               Amazon Everest Dashboards
             </Typography>
-            <h2>Light Mode | Dark Mode </h2>
           </StyledToolbar>
         </AppBar>
       </Box>
