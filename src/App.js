@@ -84,8 +84,8 @@ export default function App() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <Router>
-          <MyApp />
           <AppWrapper />
+          <MyApp />
         </Router>
       </ThemeProvider>
     </ColorModeContext.Provider>
