@@ -111,7 +111,6 @@ function Header(user) {
                       height: 240,
                     }}
                   >
-                    <h2>Statistics</h2>
                     <QueryClientProvider client={queryClient}>
                       <Data />
                     </QueryClientProvider>

@@ -64,7 +64,7 @@ export default function PersistentDrawerLeft() {
       <AppBar
         position="absolute"
         open={open}
-        style={{ backgroundColor: "#2d2c40", height: "55px" }}
+        style={{ backgroundColor: "#2d2c40", height: "65px" }}
       >
         <Toolbar
           sx={{
