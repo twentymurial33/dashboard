@@ -134,7 +134,7 @@ function Header(user) {
                   <Paper
                     sx={{ p: 12, display: "flex", flexDirection: "column" }}
                   >
-                    <h3>Summary of Dashboards</h3>
+                    <h3>List of Dashboards</h3>
                     <Table size="small">
                       <TableHead>
                         <TableRow>
