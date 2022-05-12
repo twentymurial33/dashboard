@@ -26,7 +26,7 @@ function Analytics() {
                 width="600"
                 marginTop="20px"
                 height="400"
-                // src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
+                src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/567024620811/dashboards/ecf68f88-10fa-45e7-a657-8ad14d420023?directory_alias=concave"
               ></iframe>
             </Grid>
             <Grid item md={2}>
@@ -34,7 +34,7 @@ function Analytics() {
                 title="This is a unique title"
                 width="600"
                 height="400"
-                // src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
+                src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/567024620811/dashboards/ecf68f88-10fa-45e7-a657-8ad14d420023?directory_alias=concave"
               ></iframe>
             </Grid>
 
@@ -67,7 +67,7 @@ function Analytics() {
                 title="This is a unique title"
                 width="600"
                 height="400"
-                src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
+                // src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
               ></iframe>
             </Grid>
 

@@ -1,5 +1,4 @@
 import React from "react";
-import Drawer from "./components/Drawer";
 import Box from "@mui/material/Box";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
@@ -14,7 +13,7 @@ function Design() {
       <Nav />
       <main>
         <ThemeProvider theme={mdTheme}>
-          <Drawer />
+          <Layout />
           <Box
             display="grid"
             gridTemplateColumns="repeat(12, 1fr)"

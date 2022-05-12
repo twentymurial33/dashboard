@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import Nav from "./components/Nav";
+import Layout from "./components/Layout";
 
 const mdTheme = createTheme();
 
@@ -13,7 +14,8 @@ function Security() {
       <Nav />
       <main>
         <ThemeProvider theme={mdTheme}>
-          <Drawer />
+          <Layout />
+
           <Box
             display="grid"
             gridTemplateColumns="repeat(12, 1fr)"

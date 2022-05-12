@@ -19,7 +19,8 @@ import TableRow from "@mui/material/TableRow";
 import { SignInHeader } from "./components/SignInHeader";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import Data from "./components/Data";
+import Data from "./API/Data";
+import Dashboard from "./API/Dashboard";
 import { Amplify } from "aws-amplify";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
@@ -84,7 +85,6 @@ function Header(user) {
   return (
     <Layout>
       <ThemeProvider theme={mdTheme}>
-        {/* <Drawer /> */}
         <Box sx={{ display: "flex" }}>
           <CssBaseline />
           <Box
@@ -125,7 +125,8 @@ function Header(user) {
                       height: 240,
                     }}
                   >
-                    <h2>Today's View</h2>
+                    <h2>List of User Dashboards</h2>
+                    <Dashboard />
                   </Paper>
                 </Grid>
 
@@ -133,7 +134,7 @@ function Header(user) {
                   <Paper
                     sx={{ p: 12, display: "flex", flexDirection: "column" }}
                   >
-                    <h3>List of Dashboards</h3>
+                    <h3>Summary of Dashboards</h3>
                     <Table size="small">
                       <TableHead>
                         <TableRow>
