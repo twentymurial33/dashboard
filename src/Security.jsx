@@ -15,7 +15,6 @@ function Security() {
       <main>
         <ThemeProvider theme={mdTheme}>
           <Layout />
-
           <Box
             display="grid"
             gridTemplateColumns="repeat(12, 1fr)"

@@ -17,7 +17,7 @@ function Data() {
     <div>
       {isLoading && "Loading......"}
       {error && error.message}
-      {data && data.map((comment) => <h1 key={comment.id}>{comment.name}</h1>)}
+      {data && data.map((comment) => <p key={comment.id}>{comment.name}</p>)}
     </div>
   );
 }

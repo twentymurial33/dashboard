@@ -108,9 +108,13 @@ function Header(user) {
                       p: 2,
                       display: "flex",
                       flexDirection: "column",
-                      height: 240,
+                      height: 280,
+                    }}
+                    style={{
+                      backgroundColor: "grey",
                     }}
                   >
+                    <h4>React Query</h4>
                     <QueryClientProvider client={queryClient}>
                       <Data />
                     </QueryClientProvider>
@@ -122,10 +126,14 @@ function Header(user) {
                       p: 2,
                       display: "flex",
                       flexDirection: "column",
-                      height: 240,
+                      height: 280,
+                      width: 320,
+                    }}
+                    style={{
+                      backgroundColor: "pink",
                     }}
                   >
-                    <h2>List of User Dashboards</h2>
+                    <h4>User Dashboards</h4>
                     <Dashboard />
                   </Paper>
                 </Grid>

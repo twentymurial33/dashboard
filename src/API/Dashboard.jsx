@@ -14,11 +14,11 @@ const userDashboardIds = [
 function Dashboard() {
   return (
     <>
-      <h2>Json Array Object </h2>
-
-      {/* {userDashboardIds.map((data) => (
-        <p key={id}>{data}</p>
-      ))} */}
+      {userDashboardIds.map((userDashboardId) => (
+        <div>
+          <p>{`Name:${userDashboardId.name} ID:${userDashboardId.id}`}</p>
+        </div>
+      ))}
     </>
   );
 }
