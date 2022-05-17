@@ -27,8 +27,6 @@ import "@aws-amplify/ui-react/styles.css";
 import awsExports from "./aws-exports.js";
 Amplify.configure(awsExports);
 
-const mdTheme = createTheme();
-
 function createData(id, date, name, shipTo, paymentMethod, amount) {
   return { id, date, name, shipTo, paymentMethod, amount };
 }
@@ -84,94 +82,90 @@ const queryClient = new QueryClient();
 function Header(user) {
   return (
     <Layout>
-      <ThemeProvider theme={mdTheme}>
-        <Box sx={{ display: "flex" }}>
-          <CssBaseline />
-          <Box
-            component="main"
-            sx={{
-              backgroundColor: (theme) =>
-                theme.palette.mode === "light"
-                  ? theme.palette.grey[100]
-                  : theme.palette.grey[900],
-              flexGrow: 1,
-              height: "100vh",
-              overflow: "auto",
-            }}
-          >
-            <Toolbar />
-            <Container maxWidth="lg" sx={{ mt: 8, mb: 8 }}>
-              <Grid container spacing={3}>
-                <Grid item xs={12} md={8} lg={9}>
-                  <Paper
-                    sx={{
-                      p: 2,
-                      display: "flex",
-                      flexDirection: "column",
-                      height: 280,
-                    }}
-                    style={{
-                      backgroundColor: "grey",
-                    }}
-                  >
-                    <h4>React Query</h4>
-                    <QueryClientProvider client={queryClient}>
-                      <Data />
-                    </QueryClientProvider>
-                  </Paper>
-                </Grid>
-                <Grid item xs={12} md={4} lg={3}>
-                  <Paper
-                    sx={{
-                      p: 2,
-                      display: "flex",
-                      flexDirection: "column",
-                      height: 280,
-                      width: 320,
-                    }}
-                    style={{
-                      backgroundColor: "pink",
-                    }}
-                  >
-                    <h4>User Dashboards</h4>
-                    <Dashboard />
-                  </Paper>
-                </Grid>
-
-                <Grid item xs={12}>
-                  <Paper
-                    sx={{ p: 12, display: "flex", flexDirection: "column" }}
-                  >
-                    <h3>Summary of Dashboards</h3>
-                    <Table size="small">
-                      <TableHead>
-                        <TableRow>
-                          <TableCell>Date</TableCell>
-                          <TableCell>Name</TableCell>
-                          <TableCell>Ship To</TableCell>
-                          <TableCell>Payment Method</TableCell>
-                          <TableCell align="right">Sale Amount</TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {rows.map((row) => (
-                          <TableRow key={row.id}>
-                            <TableCell>{row.date}</TableCell>
-                            <TableCell>{row.name}</TableCell>
-                            <TableCell>{row.shipTo}</TableCell>
-                            <TableCell>{row.paymentMethod}</TableCell>
-                            <TableCell align="right">{`$${row.amount}`}</TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </Paper>
-                </Grid>
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+        <Box
+          component="main"
+          sx={{
+            backgroundColor: (theme) =>
+              theme.palette.mode === "light"
+                ? theme.palette.grey[100]
+                : theme.palette.grey[900],
+            flexGrow: 1,
+            height: "100vh",
+            overflow: "auto",
+          }}
+        >
+          <Toolbar />
+          <Container maxWidth="lg" sx={{ mt: 8, mb: 8 }}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={8} lg={9}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: "flex",
+                    flexDirection: "column",
+                    height: 280,
+                  }}
+                  style={{
+                    backgroundColor: "grey",
+                  }}
+                >
+                  <h4>React Query</h4>
+                  <QueryClientProvider client={queryClient}>
+                    <Data />
+                  </QueryClientProvider>
+                </Paper>
               </Grid>
-            </Container>
-          </Box>
+              <Grid item xs={12} md={4} lg={3}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: "flex",
+                    flexDirection: "column",
+                    height: 280,
+                    width: 320,
+                  }}
+                  style={{
+                    backgroundColor: "pink",
+                  }}
+                >
+                  <h4>User Dashboards</h4>
+                  <Dashboard />
+                </Paper>
+              </Grid>
+
+              <Grid item xs={12}>
+                <Paper sx={{ p: 12, display: "flex", flexDirection: "column" }}>
+                  <h3>Summary of Dashboards</h3>
+                  <Table size="small">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Date</TableCell>
+                        <TableCell>Name</TableCell>
+                        <TableCell>Ship To</TableCell>
+                        <TableCell>Payment Method</TableCell>
+                        <TableCell align="right">Sale Amount</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {rows.map((row) => (
+                        <TableRow key={row.id}>
+                          <TableCell>{row.date}</TableCell>
+                          <TableCell>{row.name}</TableCell>
+                          <TableCell>{row.shipTo}</TableCell>
+                          <TableCell>{row.paymentMethod}</TableCell>
+                          <TableCell align="right">{`$${row.amount}`}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </Paper>
+              </Grid>
+            </Grid>
+          </Container>
         </Box>
-      </ThemeProvider>
+      </Box>
     </Layout>
   );
 }
