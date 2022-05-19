@@ -1,15 +1,12 @@
 import React from "react";
-import Drawer from "./components/Drawer";
 import Box from "@mui/material/Box";
+import Layout from "./components/Layout";
 import Grid from "@mui/material/Grid";
-import Nav from "./components/Nav";
 
 function Analytics() {
   return (
     <>
-      <Nav />
-      <main>
-        <Drawer />
+      <Layout>
         <Box
           display="grid"
           gridTemplateColumns="repeat(12, 1fr)"
@@ -76,7 +73,7 @@ function Analytics() {
             ></iframe>
           </Grid>
         </Box>
-      </main>
+      </Layout>
     </>
   );
 }
