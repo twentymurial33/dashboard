@@ -1,16 +1,12 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
-import Nav from "./components/Nav";
 import Layout from "./components/Layout";
 
 function Design() {
   return (
     <>
-      <Nav />
-      <main>
-        <Layout />
+      <Layout>
         <Box
           display="grid"
           gridTemplateColumns="repeat(12, 1fr)"
@@ -77,7 +73,7 @@ function Design() {
             ></iframe>
           </Grid>
         </Box>
-      </main>
+      </Layout>
     </>
   );
 }
