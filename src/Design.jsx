@@ -16,9 +16,8 @@ function Design() {
           <iframe
             title="This is a unique title"
             width="600"
-            marginTop="20px"
-            height="400"
-            // src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
+            height="200"
+            src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/567024620811/dashboards/a3a80918-6cce-4a41-b0ae-fb782515df70?directory_alias=concave"
           ></iframe>
         </Grid>
         <Grid item md={2}>
@@ -26,7 +25,7 @@ function Design() {
             title="This is a unique title"
             width="600"
             height="400"
-            // src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
+            src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/567024620811/dashboards/a3a80918-6cce-4a41-b0ae-fb782515df70?directory_alias=concave"
           ></iframe>
         </Grid>
 
@@ -49,9 +48,8 @@ function Design() {
           <iframe
             title="This is a unique title"
             width="600"
-            marginTop="20px"
             height="400"
-            // src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
+            src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/567024620811/dashboards/a3a80918-6cce-4a41-b0ae-fb782515df70?directory_alias=concave"
           ></iframe>
         </Grid>
         <Grid item md={2}>
@@ -59,7 +57,7 @@ function Design() {
             title="This is a unique title"
             width="600"
             height="400"
-            src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
+            src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/567024620811/dashboards/a3a80918-6cce-4a41-b0ae-fb782515df70?directory_alias=concave"
           ></iframe>
         </Grid>
 
