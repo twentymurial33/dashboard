@@ -5,7 +5,7 @@ import Paper from "@mui/material/Paper";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import UserPool from "./UserPool";
+// import UserPool from "./UserPool";
 import { Head } from "./components/Head";
 import Layout from "./components/Layout";
 import Table from "@mui/material/Table";
@@ -68,7 +68,7 @@ const rows = [
   ),
 ];
 
-function Header(user) {
+function Header() {
   return (
     <Layout>
       <Box sx={{ display: "flex" }}>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, useTheme } from "@aws-amplify/ui-react";
+import { Image } from "@aws-amplify/ui-react";
 
 export function Head() {
   // const { tokens } = useTheme();

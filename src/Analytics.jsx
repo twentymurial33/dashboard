@@ -56,10 +56,9 @@ function Analytics() {
         </Grid>
         <Grid item md={2}>
           <iframe
-            title="This is a unique title"
             width="600"
             height="400"
-            // src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
+            src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/567024620811/dashboards/e493221a-a099-47df-9332-482d8c40bf62?directory_alias=concave"
           ></iframe>
         </Grid>
 
