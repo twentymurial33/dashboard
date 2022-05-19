@@ -100,7 +100,7 @@ function Header(user) {
                     backgroundColor: "grey",
                   }}
                 >
-                  <h4>Active Users</h4>
+                  <h4>Login Wall of Fame </h4>
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4} lg={3}>
@@ -123,7 +123,7 @@ function Header(user) {
 
               <Grid item xs={12}>
                 <Paper sx={{ p: 12, display: "flex", flexDirection: "column" }}>
-                  <h3>Overview</h3>
+                  <h3>Logins By Department</h3>
                   <Table size="small">
                     <TableHead>
                       <TableRow>

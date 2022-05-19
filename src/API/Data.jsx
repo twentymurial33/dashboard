@@ -10,9 +10,7 @@ function Data() {
 
   return (
     <div>
-      {isLoading && "Loading......"}
-      {error && error.message}
-      {data && data.map((comment) => <p key={comment.id}>{comment.name}</p>)}
+      <div className="dashboard-preview"></div>
     </div>
   );
 }

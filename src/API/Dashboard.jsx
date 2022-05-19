@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Data from "./Data";
 const queryClient = new QueryClient();
