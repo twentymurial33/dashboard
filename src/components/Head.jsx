@@ -2,7 +2,7 @@ import React from "react";
 import { Image, useTheme } from "@aws-amplify/ui-react";
 
 export function Head() {
-  const { tokens } = useTheme();
+  // const { tokens } = useTheme();
 
   return (
     <div>

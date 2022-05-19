@@ -13,7 +13,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
 import Links from "./Nav";
 
 const drawerWidth = 320;
@@ -47,7 +46,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [darkMode, setDarkMode] = React.useState(true);
 
   const handleDrawerClose = () => {
     setOpen(false);

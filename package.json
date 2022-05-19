@@ -18,6 +18,7 @@
     "aws-amplify": "^4.3.18",
     "dotenv": "^16.0.0",
     "formik": "^2.2.9",
+    "json-server": "^0.17.0",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.15",
     "react": "^17.0.2",
