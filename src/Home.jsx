@@ -5,7 +5,6 @@ import Paper from "@mui/material/Paper";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-// import UserPool from "./UserPool";
 import { Head } from "./components/Head";
 import Layout from "./components/Layout";
 import Table from "@mui/material/Table";
@@ -14,7 +13,9 @@ import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { SignInHeader } from "./components/SignInHeader";
+import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import Dashboard from "./API/Dashboard";
+import Data from "./API/Data";
 import { Amplify } from "aws-amplify";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
@@ -24,6 +25,8 @@ Amplify.configure(awsExports);
 function createData(id, date, name, shipTo, paymentMethod, amount) {
   return { id, date, name, shipTo, paymentMethod, amount };
 }
+
+const queryClient = new QueryClient();
 
 const rows = [
   createData(
@@ -100,7 +103,9 @@ function Header() {
                     backgroundColor: "grey",
                   }}
                 >
-                  <h4>Login Wall of Fame </h4>
+                  <QueryClientProvider client={queryClient}>
+                    <Data />
+                  </QueryClientProvider>
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4} lg={3}>
@@ -116,14 +121,14 @@ function Header() {
                     backgroundColor: "pink",
                   }}
                 >
-                  <h4>User Dashboards</h4>
+                  <h3 style={{ textAlign: "center" }}>User Dashboards</h3>
                   <Dashboard />
                 </Paper>
               </Grid>
 
               <Grid item xs={12}>
                 <Paper sx={{ p: 12, display: "flex", flexDirection: "column" }}>
-                  <h3>Logins By Department</h3>
+                  <h3>FORI Ogrs</h3>
                   <Table size="small">
                     <TableHead>
                       <TableRow>

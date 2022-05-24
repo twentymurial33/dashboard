@@ -1,6 +1,8 @@
 import React from "react";
-import { useQuery } from "react-query";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, useQuery } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+import axios from "axios";
+import Clock from "./Clock";
 
 const queryClient = new QueryClient();
 
@@ -14,9 +16,22 @@ function Data() {
   return (
     <div>
       <div className="dashboard-preview">
-        {/* <QueryClientProvider client={queryClient}>
-          <Data userDashboards={userDashboards} />
-        </QueryClientProvider> */}
+        {/* <span
+          class="material-symbols-outlined"
+          style={{ padding: "20px", size: "large", fontSize: "80px" }}
+        >
+          insights
+        </span> */}
+
+        <Clock />
+        {isLoading && "Loading......"}
+        {error && error.message}
+        {data &&
+          data.map((comment) => (
+            <p style={{ textAlign: "center" }} key={comment.id}>
+              {comment.name}
+            </p>
+          ))}
       </div>
     </div>
   );
