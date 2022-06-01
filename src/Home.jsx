@@ -15,7 +15,8 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { SignInHeader } from "./components/SignInHeader";
 import Dashboard from "./API/Dashboard";
-import { Amplify } from "aws-amplify";
+import { Amplify, Interactions } from "aws-amplify";
+import Chatbot from "./API/Chatbot";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import awsExports from "./aws-exports.js";
@@ -101,6 +102,7 @@ function Header(user) {
                   }}
                 >
                   <h4>Login Wall of Fame </h4>
+                  <Chatbot />
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4} lg={3}>
