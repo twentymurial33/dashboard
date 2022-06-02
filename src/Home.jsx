@@ -90,7 +90,7 @@ function Header() {
           }}
         >
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 8, mb: 8 }}>
+          <Container>
             <Grid container spacing={3}>
               <Grid item xs={12} md={8} lg={9}>
                 <Paper
