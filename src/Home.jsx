@@ -15,6 +15,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { SignInHeader } from "./components/SignInHeader";
 import Dashboard from "./API/Dashboard";
+import Data from "./API/Data";
 import { Amplify, Interactions } from "aws-amplify";
 import Chatbot from "./API/Chatbot";
 import { withAuthenticator } from "@aws-amplify/ui-react";
