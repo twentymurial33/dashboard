@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
-import { QueryClient, QueryClientProvider } from "react-query";
-import Data from "./Data";
-const queryClient = new QueryClient();
+import React, { useState, useEffect } from "react";
+
 function Dashboard() {
-  const [userDashboards, setUserDashboards] = useState(" ");
+  const [userDashboards, setUserDashboards] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:8000/userDashboards")
@@ -16,9 +14,13 @@ function Dashboard() {
       });
   }, []);
   return (
-    <QueryClientProvider client={queryClient}>
-      <Data userDashboards={userDashboards} />
-    </QueryClientProvider>
+    <>
+      <ul>
+        {userDashboards.map((userDashboard, i) => {
+          return <li key={i}>{userDashboard.name}</li>;
+        })}
+      </ul>
+    </>
   );
 }
 
