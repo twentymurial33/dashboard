@@ -13,6 +13,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Stack from "@mui/material/Stack";
+import Chatbot from "../API/Chatbot";
 import Links from "./Nav";
 
 const drawerWidth = 320;
@@ -93,6 +94,7 @@ export default function PersistentDrawerLeft() {
           </Typography>
 
           <Stack direction="row" spacing={1}></Stack>
+          <Chatbot />
         </Toolbar>
       </AppBar>
 
