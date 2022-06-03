@@ -8,7 +8,7 @@ Amplify.configure(awsconfig);
 
 Amplify.configure({
   Auth: {
-    identityPoolId: "us-east-1_pHKQVIvJc",
+    identityPoolId: "us-east-1:d06b4bc7-574f-47ec-8ad5-d373e5700686",
     region: "us-east-1",
   },
   Interactions: {
@@ -42,12 +42,17 @@ function Chatbot() {
   }, []);
 
   return (
-    <AmplifyChatbot
-      botName="yourBotName"
-      botTitle="My ChatBot"
-      welcomeMessage="Hello, how can I help you?"
-      theme={myTheme}
-    />
+    <div className="App">
+      <header className="App-header">
+        <h1 className="App-title">Welcome to ChatBot Demo</h1>
+      </header>
+      <AmplifyChatbot
+        title="Banking Bot"
+        theme={myTheme}
+        botName="PersonalBanker"
+        welcomeMessage="Welcome, how can I help you today?"
+      />
+    </div>
   );
 }
 export default Chatbot;
