@@ -40,5 +40,12 @@
         }
       ]
     }
+  },
+  "interactions": {
+    "lexchatbotdev": {
+      "service": "Lex",
+      "providerPlugin": "awscloudformation",
+      "build": true
+    }
   }
 }
