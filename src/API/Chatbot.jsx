@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import Amplify, { Interactions, AmplifyTheme } from "aws-amplify";
 import "./Chatbot.css";
+import Amplify, { AmplifyTheme } from "aws-amplify";
 import { AmplifyChatbot } from "@aws-amplify/ui-react/legacy";
 import awsconfig from "../aws-exports";
 
@@ -24,6 +24,10 @@ Amplify.configure({
 
 const myTheme = {
   ...AmplifyTheme,
+  // sectionHeader: {
+  //   ...AmplifyTheme.sectionHeader,
+  //   backgroundColor: "#ff6600",
+  // },
 };
 
 function Chatbot() {
@@ -40,19 +44,16 @@ function Chatbot() {
       chatbotElement.removeEventListener("chatCompleted", handleChatComplete);
     };
   }, []);
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="App-title">Welcome to ChatBot Demo</h1>
-      </header>
-      <AmplifyChatbot
-        title="Banking Bot"
-        theme={myTheme}
-        botName="PersonalBanker"
-        welcomeMessage="Welcome, how can I help you today?"
-      />
-    </div>
+    <AmplifyChatbot
+      title="Book Trip"
+      theme={myTheme}
+      botName="BookTrip"
+      welcomeMessage="Hello, how can I help you?"
+      clearOnComplete={true}
+      conversationModeOn={true}
+    />
   );
 }
+
 export default Chatbot;
