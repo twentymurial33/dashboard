@@ -8,14 +8,14 @@ Amplify.configure(awsconfig);
 
 Amplify.configure({
   Auth: {
-    identityPoolId: "us-east-1:d06b4bc7-574f-47ec-8ad5-d373e5700686",
+    identityPoolId: process.env.REACT_APP_IDENTITY_POOL_ID,
     region: "us-east-1",
   },
   Interactions: {
     bots: {
-      BookTrip: {
-        name: "BookTrip",
-        alias: "TSTALIASID",
+      BookTrip_main: {
+        name: "BookTrip_main",
+        alias: "$LATEST",
         region: "us-east-1",
       },
     },
@@ -50,7 +50,7 @@ function Chatbot() {
     <AmplifyChatbot
       title="Book Trip"
       theme={myTheme}
-      botName="BookTrip"
+      botName="BookTrip_main"
       welcomeMessage="Hello, how can I help you?"
       clearOnComplete={true}
       conversationModeOn={true}
