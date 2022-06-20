@@ -16,6 +16,7 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/user-event": "^13.5.0",
     "amazon-cognito-identity-js": "^5.2.8",
+    "amazon-quicksight-embedding-sdk": "^1.19.0",
     "aws-amplify": "^4.3.24",
     "aws-amplify-react": "^5.1.9",
     "casperjs": "^1.1.4",
