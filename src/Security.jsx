@@ -1,15 +1,20 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import Layout from "./components/Layout";
-import { embedDashboard } from "amazon-quicksight-embedding-sdk";
+import * as QuickSightEmbedding from "amazon-quicksight-embedding-sdk";
 
-const dashboard = embedDashboard(options);
+function onDashboardLoad(payload) {
+  console.log("Do something when the dashboard is fully loaded.");
+}
 
+function onError(payload) {
+  console.log("Do something when the dashboard fails loading");
+}
+var dashboard;
 function Security() {
-  var containerDiv = document.getElementById("dashboardContainer");
+  var containerDiv = document.getElementById("embeddingContainer");
   var options = {
-    // url: "https://us-east-1.quicksight.aws.amazon.com/sn/dashboards/dashboardId?isauthcode=true&identityprovider=quicksight&code=authcode",
+    url:
+      "https://us-east-1.quicksight.aws.amazon.com/sn/dashboards/dashboardId?isauthcode=true&identityprovider=quicksight&code=authcode",
     container: containerDiv,
     parameters: {
       country: "United States",
@@ -17,77 +22,16 @@ function Security() {
     scrolling: "no",
     height: "700px",
     width: "1000px",
+    locale: "en-US",
+    footerPaddingEnabled: true,
   };
   dashboard = QuickSightEmbedding.embedDashboard(options);
   dashboard.on("error", onError);
   dashboard.on("load", onDashboardLoad);
+
   return (
     <Layout>
-      <Box
-        display="grid"
-        gridTemplateColumns="repeat(12, 1fr)"
-        gap={4}
-        style={{ paddingTop: "20px", display: "flex" }}
-      >
-        <Grid item md={2}>
-          <iframe
-            title="This is a unique title"
-            width="600"
-            marginTop="20px"
-            height="400"
-          ></iframe>
-        </Grid>
-        <Grid item md={2}>
-          <iframe
-            title="This is a unique title"
-            width="600"
-            height="400"
-            // src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
-          ></iframe>
-        </Grid>
-
-        <Grid item md={2}>
-          <iframe
-            title="This is a unique title"
-            width="600"
-            height="400"
-            // src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
-          ></iframe>
-        </Grid>
-      </Box>
-      <Box
-        display="grid"
-        gridTemplateColumns="repeat(12, 1fr)"
-        gap={4}
-        style={{ paddingTop: "20px", display: "flex" }}
-      >
-        <Grid item md={2}>
-          <iframe
-            title="This is a unique title"
-            width="600"
-            marginTop="20px"
-            height="400"
-            // src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
-          ></iframe>
-        </Grid>
-        <Grid item md={2}>
-          <iframe
-            title="This is a unique title"
-            width="600"
-            height="400"
-            src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
-          ></iframe>
-        </Grid>
-
-        <Grid item md={2}>
-          <iframe
-            title="This is a unique title"
-            width="600"
-            height="400"
-            src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
-          ></iframe>
-        </Grid>
-      </Box>
+      <div>{dashboard}</div>
     </Layout>
   );
 }
