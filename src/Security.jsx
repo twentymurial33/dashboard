@@ -35,7 +35,6 @@ function Security() {
             width="600"
             marginTop="20px"
             height="400"
-            // src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/783053138602/dashboards/7ebc0ad1-bd0e-42ac-8c9a-1b81c2a86148?directory_alias=defsecc"
           ></iframe>
         </Grid>
         <Grid item md={2}>
