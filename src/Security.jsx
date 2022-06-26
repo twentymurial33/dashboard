@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "./components/Layout";
+import getEmbedUrl from "./getEmbedUrl";
 import * as QuickSightEmbedding from "amazon-quicksight-embedding-sdk";
 
 function onDashboardLoad(payload) {
