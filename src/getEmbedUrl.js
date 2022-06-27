@@ -1,7 +1,7 @@
 global.fetch = require("node-fetch");
 const AWS = require("aws-sdk");
 
-function generateEmbedUrlForRegisteredUser(
+function getEmbedUrl(
   accountId,
   dashboardId,
   openIdToken, // Cognito-based token
@@ -27,8 +27,8 @@ function generateEmbedUrlForRegisteredUser(
       const getDashboardParams = {
         AwsAccountId: accountId,
         ExperienceConfiguration: {
-          QuickSightConsole: {
-            InitialPath: "/start",
+          Dashboard: {
+            InitialDashboardId: dashboardId,
           },
         },
         UserArn: userArn,
@@ -69,4 +69,4 @@ function generateEmbedUrlForRegisteredUser(
   });
 }
 
-export default generateEmbedUrlForRegisteredUser;
+export default getEmbedUrl;
