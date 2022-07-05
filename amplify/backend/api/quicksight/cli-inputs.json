@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "paths": {
+    "/getQuickSightDashboardEmbedURL": {
+      "name": "/getQuickSightDashboardEmbedURL",
+      "lambdaFunction": "dashboard46de3173",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "read"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "AwsAccountId": "567024620811",
+  "Namespace": "default",
+  "SessionLifetimeInMinutes": 60,
+  "AuthorizedResourcesArns": [
+    "arn:aws:quicksight:us-east-1:567024620811:dashboards/78a8e352-a998-4705-8e16-94d5f9712491"
+  ],
+  "ExperienceConfiguration": {
+    "Dashboard": {
+      "Embedded": "78a8e352-a998-4705-8e16-94d5f9712491"
+    }
+  }
+}
