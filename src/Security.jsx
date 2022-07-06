@@ -20,8 +20,6 @@ const Security = () => {
       scrolling: "no",
       height: "700px",
       width: "1000px",
-      locale: "en-US",
-      footerPaddingEnabled: true,
     };
     QuickSightEmbedding.embedDashboard(options);
   };
