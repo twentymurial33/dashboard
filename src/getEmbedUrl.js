@@ -1,27 +1,83 @@
-const AWS = require("aws-sdk");
-const https = require("https");
+import React from "react";
+import { API, Auth } from "aws-amplify";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import { withStyles } from "@material-ui/core/styles";
 
-var quicksight = new AWS.Service({
-  apiConfig: require("./quicksight-2018-04-01.min.json"),
-  region: "us-east-1",
+var QuickSightEmbedding = require("amazon-quicksight-embedding-sdk");
+
+const useStyles = (theme) => ({
+  loading: {
+    alignContent: "center",
+    justifyContent: "center",
+    display: "flex",
+    marginTop: theme.spacing(4),
+  },
 });
 
-quicksight.generateEmbedUrlForRegisteredUser(
-  {
-    AwsAccountId: "567024620811",
-    ExperienceConfiguration: {
-      Dashboard: {
-        InitialDashboardId: "a3a80918-6cce-4a41-b0ae-fb782515df70",
-      },
-    },
-    UserArn: "REGISTERED_USER_ARN",
-    AllowedDomains: allowedDomains,
-    SessionLifetimeInMinutes: 100,
-  },
-  function (err, data) {
-    console.log("Errors: ");
-    console.log(err);
-    console.log("Response: ");
-    console.log(data);
+class getEmbedUrl extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loader: true,
+    };
   }
-);
+
+  componentDidMount() {
+    this.getQuickSightDashboardEmbedURL();
+  }
+
+  getQuickSightDashboardEmbedURL = async () => {
+    const data = await Auth.currentSession();
+    const jwtToken = data.idToken.jwtToken;
+    const payloadSub = data.idToken.payload.sub;
+    const email = data.idToken.payload.email;
+
+    const params = {
+      headers: {},
+      response: true,
+      queryStringParameters: {
+        jwtToken: jwtToken,
+        payloadSub: payloadSub,
+        email: email,
+      },
+    };
+    const quicksight = await API.get(
+      "quicksight",
+      "/getQuickSightDashboardEmbedURL",
+      params
+    );
+    console.log(quicksight);
+    const containerDiv = document.getElementById("dashboardContainer");
+
+    const options = {
+      url: quicksight.data.data.EmbedUrl,
+      container: containerDiv,
+      parameters: {
+        country: "United States",
+      },
+      scrolling: "no",
+      height: "800px",
+      width: "912px",
+      footerPaddingEnabled: true,
+    };
+    const dashboard = QuickSightEmbedding.embedDashboard(options);
+    this.setState({ loader: false });
+  };
+
+  render() {
+    const { classes } = this.props;
+    return (
+      <div>
+        {this.state.loader && (
+          <div className={classes.loading}>
+            {" "}
+            <CircularProgress />{" "}
+          </div>
+        )}
+        <div id="dashboardContainer"></div>
+      </div>
+    );
+  }
+}
+
+export default withStyles(useStyles)(getEmbedUrl);
