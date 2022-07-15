@@ -17,7 +17,7 @@ function Analytics() {
             title="This is a unique title"
             width="600"
             height="400"
-            src="https://us-east-1.quicksight.aws.amazon.com/sn/embed/share/accounts/567024620811/dashboards/8be4c4b7-17da-4bdb-8815-d54b13eaf449?directory_alias=concave"
+            src="https://9f7333gdq3.execute-api.us-east-1.amazonaws.com/test/embed-api"
           ></iframe>
         </Grid>
         <Grid item md={2}>
