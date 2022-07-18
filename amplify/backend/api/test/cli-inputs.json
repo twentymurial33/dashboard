@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "paths": {
+    "/dashboards": {
+      "name": "/dashboards",
+      "lambdaFunction": "dashboard46de3173",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/users": {
+      "name": "/users",
+      "lambdaFunction": "dashboard46de3173",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
