@@ -14,6 +14,13 @@
       "permissions": {
         "setting": "open"
       }
+    },
+    "/items": {
+      "name": "/items",
+      "lambdaFunction": "dashboardfe6b1985",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }
