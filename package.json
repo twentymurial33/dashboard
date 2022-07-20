@@ -16,6 +16,8 @@
     "@mui/styled-engine-sc": "^5.4.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/user-event": "^13.5.0",
+    "ajv-dist": "^8.11.0",
+    "ajv-errors": "^1.0.1",
     "amazon-cognito-identity-js": "^5.2.8",
     "amazon-quicksight-embedding-sdk": "^1.19.0",
     "aws-amplify": "^4.3.24",
@@ -23,11 +25,12 @@
     "aws-sdk": "^2.1159.0",
     "casperjs": "^1.1.4",
     "dotenv": "^16.0.0",
+    "eslint-webpack-plugin": "^3.2.0",
     "formik": "^2.2.9",
     "http-browserify": "^1.7.0",
     "https": "^1.0.0",
     "https-browserify": "^1.0.0",
-    "json-server": "^0.4.2",
+    "json-server": "^0.17.0",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^1.4.1",
     "npm": "^8.14.0",
@@ -36,7 +39,7 @@
     "react-dom": "^17.0.2",
     "react-query": "^3.38.1",
     "react-router-dom": "^6.2.2",
-    "react-scripts": "^0.9.5",
+    "react-scripts": "^5.0.1",
     "styled-components": "^5.3.3",
     "util": "^0.12.4",
     "web-vitals": "^2.1.4",
@@ -68,7 +71,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^13.2.0",
-    "eslint": "^8.15.0",
+    "eslint": "^8.20.0",
     "eslint-plugin-react": "^7.30.0"
   }
 }

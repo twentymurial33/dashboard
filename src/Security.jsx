@@ -1,22 +1,17 @@
 import * as QuickSightEmbedding from "amazon-quicksight-embedding-sdk";
-import React, { useLayoutEffect } from "react";
+import getEmbedUrl from "./getEmbedUrl";
+import { useEffect } from "react";
 
-var dashboard;
-function onDashboardLoad(payload) {
-  console.log("Do something when the dashboard is fully loaded.");
-}
+export default function Security() {
+  useEffect(() => {
+    embedDashboard();
+  }, []);
 
-function onError(payload) {
-  console.log("Do something when the dashboard fails loading");
-}
-
-function Security() {
-  useLayoutEffect(() => {
-    var containerDiv = document.getElementById("dashboardContainer");
-    console.log(containerDiv);
+  function embedDashboard() {
+    var containerDiv = document.getElementById("embeddingContainer");
     var options = {
       url:
-        "https://us-east-1.quicksight.aws.amazon.com/embed/bb3dd96ceec24e4eb6f861c1a4c25419/dashboards/78a8e352-a998-4705-8e16-94d5f9712491?code=AYABeB91MmH6kZKjRBr5oZU-0GUAAAABAAdhd3Mta21zAEthcm46YXdzOmttczp1cy1lYXN0LTE6MjU5NDgwNDYyMTMyOmtleS81NGYwMjdiYy03MDJhLTQxY2YtYmViNS0xNDViOTExNzFkYzMAuAECAQB4EeOLgrUr51nsHbjCawUUKjOqEm284CNxqOjvtm6TGiwBI306xaNuS6X-Mre5a0hLOQAAAH4wfAYJKoZIhvcNAQcGoG8wbQIBADBoBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHUyUsius8FqzRDfmgIBEIA7824NTbb61CwzDrThJ5PPrOI6gUBaAkIIMD37HdGQE7XOKAr1YcthrTh1OpXc4mW2jfZxbEydibUVoAMCAAAAAAwAABAAAAAAAAAAAAAAAAAACocmaXuiSgrjnUeNijMrx_____8AAAABAAAAAAAAAAAAAAABAAAA5YDaRRkw6K0ntg2HDVw_g2b7jifZcP1wDrc0FZFmmscpV4hlhFB6UlxWIj1klrj-w85EALJoBBNs3d--gbaQTfkvWiS0QYNojtapC8jYw8GP1eialudlMsjjBDeixGZwJyVaiNDWircT-BUW_56lCFZtB51xKr99Gq4XPSdL2mPHQUBWvKGV-GkMBIvZ9BYSYsnbSyt1BAZjimA796nBwD6ByrI0U-nKapVbkbBNHRMOx0JMtCnH32R8vLDJ-2eb6VtAalmCu_EJp32MCMjFd3w5HefqVkv_KXJfNEdTztw3uQFa_0CtcTc_60pbe5iyYPF-CqRf&identityprovider=quicksight&isauthcode=true&undoRedoDisabled=true&resetDisabled=true",
+        "https://us-east-1.quicksight.aws.amazon.com/embed/83a3dee265624d7da1ee7da4c7af3a07/dashboards/78a8e352-a998-4705-8e16-94d5f9712491?isauthcode=true&identityprovider=quicksight&code=AYABeBl08g692aDnILAR80VzoYgAAAABAAdhd3Mta21zAEthcm46YXdzOmttczp1cy1lYXN0LTE6MjU5NDgwNDYyMTMyOmtleS81NGYwMjdiYy03MDJhLTQxY2YtYmViNS0xNDViOTExNzFkYzMAuAECAQB4EeOLgrUr51nsHbjCawUUKjOqEm284CNxqOjvtm6TGiwB1u8YZsEIRPRDCL1gp55IMAAAAH4wfAYJKoZIhvcNAQcGoG8wbQIBADBoBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHlJxDqUaXXH06QOwQIBEIA7FFosfr-ul1cXbTfqEwkNZoiHVxigKsSx7rY7qjnnf2TdgwANaT4VSrW_wAxOMEVZ1DosGT1rzsy1s7cCAAAAAAwAABAAAAAAAAAAAAAAAAAA39PdAgzPPWSDojf0NQzAn_____8AAAABAAAAAAAAAAAAAAABAAAAnr7h1NphyhZ3Qsc8GmCHtzTseLWpfuwpu5815pZ2VJqxFWsRTSrU_awhpci4YyZBhcg4m4wRXY_m4RA_7RoVYExgwuLTrFx7DtvBI41zCGkQh8MEIfp-QJMyrezdjaK2MQqJXnAlmB-8xWUltGNx3HuE1Iec-hl1HLzvoMHLKi0lTcOUDyePQQqJgKEQQboD5bhPFUTMZQTRQFnyS51EQrcCqIH-Y1Xx9A6Kj27dMA%3D%3D",
       container: containerDiv,
       parameters: {
         country: "United States",
@@ -24,12 +19,59 @@ function Security() {
       scrolling: "no",
       height: "700px",
       width: "1000px",
+      locale: "en-US",
+      footerPaddingEnabled: true,
     };
-    dashboard = QuickSightEmbedding.embedDashboard(options);
-    dashboard.on("error", onError);
-    dashboard.on("load", onDashboardLoad);
-  }, []);
-  return <div id="dashboardContainer" />;
+    const dashboard = QuickSightEmbedding.embedDashboard(options);
+    console.log(dashboard);
+    dashboard.on("error", (e) => {
+      console.log(e);
+    });
+    dashboard.on("load", (l) => {
+      console.log("asdasdasdasdasda");
+    });
+  }
+
+  return (
+    <div className="App">
+      <div id="embeddingContainer" />
+    </div>
+  );
 }
 
-export default Security;
+// import Typography from "@material-ui/core/Typography";
+// import Container from "@material-ui/core/Container";
+// import Amplify, { Auth } from "aws-amplify";
+// import awsconfig from "./aws-exports";
+// import getEmbedUrl from "./getEmbedUrl";
+// import { makeStyles } from "@material-ui/core/styles";
+
+// Amplify.configure(awsconfig);
+
+// const useStyles = makeStyles((theme) => ({
+//   title: {
+//     paddingTop: theme.spacing(2),
+//   },
+// }));
+
+// function Security() {
+//   const classes = useStyles();
+
+//   return (
+//     <div>
+//       <Container maxWidth="md">
+//         <Typography
+//           variant="h4"
+//           component="h1"
+//           align="center"
+//           color="textPrimary"
+//           className={classes.title}
+//           gutterBottom
+//         >
+//           Amazon QuickSight Embed
+//         </Typography>
+//         <getEmbedUrl />
+//       </Container>
+//     </div>
+//   );
+// }

@@ -7,7 +7,13 @@
       "Default": "NONE",
       "Description": " Schedule Expression"
     },
+    "deploymentBucketName": {
+      "Type": "String"
+    },
     "env": {
+      "Type": "String"
+    },
+    "s3Key": {
       "Type": "String"
     }
   },
@@ -29,6 +35,14 @@
         "aws:asset:property": "Code"
       },
       "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "deploymentBucketName"
+          },
+          "S3Key": {
+            "Ref": "s3Key"
+          }
+        },
         "Handler": "index.handler",
         "FunctionName": {
           "Fn::If": [
@@ -50,24 +64,14 @@
         },
         "Environment": {
           "Variables": {
-            "ENV": {
-              "Ref": "env"
-            },
-            "REGION": {
-              "Ref": "AWS::Region"
-            }
+            "ENV": { "Ref": "env" },
+            "REGION": { "Ref": "AWS::Region" }
           }
         },
-        "Role": {
-          "Fn::GetAtt": ["LambdaExecutionRole", "Arn"]
-        },
-        "Runtime": "nodejs12.x",
+        "Role": { "Fn::GetAtt": ["LambdaExecutionRole", "Arn"] },
+        "Runtime": "nodejs14.x",
         "Layers": [],
-        "Timeout": "25",
-        "Code": {
-          "S3Bucket": "amplify-amplifyquicksightdas-dev-190818-deployment",
-          "S3Key": "amplify-builds/getQuickSightDashboardEmbedURL-39374f794d762b772b33-build.zip"
-        }
+        "Timeout": 25
       }
     },
     "LambdaExecutionRole": {
@@ -76,12 +80,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "amplifyquicksightdasLambdaRole5a361900",
+            "dashboardLambdaRole3d926efd",
             {
               "Fn::Join": [
                 "",
                 [
-                  "amplifyquicksightdasLambdaRole5a361900",
+                  "dashboardLambdaRole3d926efd",
                   "-",
                   {
                     "Ref": "env"
@@ -110,14 +114,30 @@
       "Type": "AWS::IAM::Policy",
       "Properties": {
         "PolicyName": "lambda-execution-policy",
-        "Roles": [
-          {
-            "Ref": "LambdaExecutionRole"
-          }
-        ],
+        "Roles": [{ "Ref": "LambdaExecutionRole" }],
         "PolicyDocument": {
           "Version": "2012-10-17",
           "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+
+              "Resource": {
+                "Fn::Sub": [
+                  "arn:aws:logs:${region}:${account}:log-group:/aws/lambda/${lambda}:log-stream:*",
+                  {
+                    "region": { "Ref": "AWS::Region" },
+                    "account": { "Ref": "AWS::AccountId" },
+                    "lambda": { "Ref": "LambdaFunction" }
+                  }
+                ]
+              }
+            },
+
             {
               "Effect": "Allow",
               "Action": ["sts:AssumeRoleWithWebIdentity"],
@@ -130,30 +150,6 @@
                 "cognito-identity:GetOpenIdToken"
               ],
               "Resource": "*"
-            },
-            {
-              "Effect": "Allow",
-              "Action": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents"
-              ],
-              "Resource": {
-                "Fn::Sub": [
-                  "arn:aws:logs:${region}:${account}:log-group:/aws/lambda/${lambda}:log-stream:*",
-                  {
-                    "region": {
-                      "Ref": "AWS::Region"
-                    },
-                    "account": {
-                      "Ref": "AWS::AccountId"
-                    },
-                    "lambda": {
-                      "Ref": "LambdaFunction"
-                    }
-                  }
-                ]
-              }
             }
           ]
         }
@@ -167,9 +163,7 @@
       }
     },
     "Arn": {
-      "Value": {
-        "Fn::GetAtt": ["LambdaFunction", "Arn"]
-      }
+      "Value": { "Fn::GetAtt": ["LambdaFunction", "Arn"] }
     },
     "Region": {
       "Value": {
